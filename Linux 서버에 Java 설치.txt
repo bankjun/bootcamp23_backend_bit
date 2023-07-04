@@ -1,0 +1,41 @@
+1. Java JDK 다운로드
+   : 다운로드 사이트에 가서 다운로드할 파일 다운주소 알아내고 리눅스서버에서 다운로드
+   # wget https://download.oracle.com/java/17/archive/jdk-17.0.7_linux-x64_bin.tar.gz
+
+2. 압축을 푼다.
+   # tar xvfz jdk-17.0.7_linux-x64_bin.tar.gz
+
+3. 자바 설치 디렉토리 만들기
+   # mkdir /usr/local/bootcamp
+
+4. 설치
+   # mv jdk-17.0.7 /usr/local/bootcamp/java
+
+6. 링크 파일 생성(X)
+   # ln -s /usr/local/douzone/java1.8 /usr/local/bootcamp/java
+
+7. 설정(/etc/profile)
+
+# java
+export JAVA_HOME=/usr/local/bootcamp/java
+export PATH=$PATH:$JAVA_HOME/bin
+
+export CLASSPATH=$JAVA_HOME/lib/tools.jar -X
+
+8. 현재 shell 환경에 적용하기
+# source /etc/profile
+
+9. 확인 작업
+# java -version
+java version "17.0.7" 2023-04-18 LTS
+Java(TM) SE Runtime Environment (build 17.0.7+8-LTS-224)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.7+8-LTS-224, mixed mode, sharing)
+
+
+
+
+
+
+
+  
+   
