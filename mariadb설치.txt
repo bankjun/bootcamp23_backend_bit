@@ -92,7 +92,6 @@ export PATH=$PATH:/usr/local/bootcamp/mariadb/bin
 # systemctl start mariadb
 # systemctl stop mariadb
 
-
 =======================================
 서비스 죽이기(강제종료)
 # ps -ef | grep mysql -> root 옆 확인후
