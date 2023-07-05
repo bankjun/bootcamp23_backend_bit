@@ -1,5 +1,5 @@
 # mysql -p  (DBA 권한으로 접속)
-
+# mysql -u "유저명" -D "접속할DB명" -p
 1. webdb database 생성
 MariaDB [none]> create database webdb;
 
