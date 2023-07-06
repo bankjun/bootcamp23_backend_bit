@@ -39,8 +39,9 @@ MOER => Data reploication, Sharding Strategies, Cap Theorem, ORMs, ACID, Tran
 + CI/CD => 통합
 + Design and Development Principles => SOLID etc
 ---------------------------------
-+ 
+
 + Message Brokers
-+ 
++ 등등
+  
 
 
