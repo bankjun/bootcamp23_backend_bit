@@ -38,6 +38,9 @@ Connection c = Class.forName("드라이버? 클래스 이름")
 > ```
 >
 > **5. 결과처리**
+> ```
+> boolean값, 실행결과 등을 처리해주는코드
+> ```
 
 -> insertTest01와 selectTest01 주석 참고
 
@@ -57,3 +60,23 @@ SQL + Parameter = 바인딩
 -> 
 
 원래 STATEMENTS: 
+
+### 바인딩을 사용했을 떄 순서
+
+>
+
+
+# DAO(Data Access Object)
+DB를 사용해 데이터를 조회하거나 조작하는 기능(CRUD)을 전담하도록 만든 오브젝트
+
+DB에 CRUD하는 코드를 어플리케이션 자체에 작성하면 객체지향이 아니지 그니까 따로 DAO클래스로 빼 놓은거지 -> 역할분리
+
+**VO:** 값들을 가지고 있는 클래스 (employee의 이름, 사번 등등 을 저장하고 set, get하는 클래스)
+
+> 이름을 입력받아 해당 이름을 가진 레이블을 반환해주는 프로그램
+> 패키지구성
+> dao -> EmployeeDao
+> 
+> vo -> EmployeeVo
+> 
+> main -> Main
