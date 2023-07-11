@@ -52,21 +52,48 @@ SQL + Parameter = 바인딩
 -> 그래서 **PREPARE STATEMENTS** 사용
 
 ### PREPARE STATEMENTS
-
--> SQL을 실행할 준비만 시키고 
+statement란, sql문을 실행하는 역할을 하는 클래스
+-> SQL을 실행할 준비만 시키고
 
 -> 바인딩: 메소드를 통해 입력된 값을 값 그자체로(ex: " **'123'** ") 들어가기 때문에 그 값이 SQL의 일부가 될 수 없음
 
--> 
+-> SQLInjection 방지
 
-원래 STATEMENTS: 
+-> 기존의 statement에서 진행하는 parse과정을 생략하여 성능을 향상시킴 [참조사이트]:https://jaehoney.tistory.com/179
 
-### 바인딩을 사용했을 떄 순서
+### 바인딩을 사용했을 떄 순서(ex: InsertTest02)
 
->
+> 0. 자원정리를 위해 try문 밖에 Connection, PreparedStatement객체 생성
+>  ```java
+>  Connection conn = null;
+>	 PreparedStatement pstmt = null;
+>  ```  
+> 1. JDBC Driver Class 로딩
+> ```java
+> Class.forName("org.mariadb.jdbc.Driver");
+> ```
+> 2. 연결하기
+> ```java
+> String url = "jdbc:mariadb://192.168.0.150:3306/webdb?charset=utf8";
+>	conn = DriverManager.getConnection(url, "webdb", "webdb"); // PreparedStatement conn = null 을 static변수로 선언, 자원정리를 위해
+> ```
+> 3. SQL문 생성(**prepare** statements) -> preparestatement가 보안성이 높음
+> ```java
+> String sql = "insert into dept values(null, ?)";
+>	pstmt = conn.prepareStatement(sql);
+> ```
+> 4. 바인딩(binding)
+> ```java
+> pstmt.setString(1, deptName);
+> ```
+> 5. SQL 실행
+> ```java
+> int count = pstmt.executeUpdate(); <- 이제 여기에 sql문을 넣지 않음
+> ```
+> 6. 결과처리
 
 
-# DAO(Data Access Object)
+# DAO(Data Access Object), VO
 DB를 사용해 데이터를 조회하거나 조작하는 기능(CRUD)을 전담하도록 만든 오브젝트
 
 DB에 CRUD하는 코드를 어플리케이션 자체에 작성하면 객체지향이 아니지 그니까 따로 DAO클래스로 빼 놓은거지 -> 역할분리
@@ -75,10 +102,9 @@ DB에 CRUD하는 코드를 어플리케이션 자체에 작성하면 객체지�
 
 > 이름을 입력받아 해당 이름을 가진 레이블을 반환해주는 프로그램
 > 패키지구성
-> hr.dao -> EmployeeDao / hr.dao.test -> EmployeeDaoTest(테스트코드)
+> hr.dao -> EmployeeDao -> Vo를 가지고 DB에 CRUD하는 메소드들을 정의한 클래스
+> hr.dao.test -> EmployeeDaoTest(테스트코드)
 > 
-> vo -> EmployeeVo
+> vo -> EmployeeVo -> 변수들에 접근하기 위한 getter, setter, toString 을 가지는 클래스
 > 
-> main -> Main
->
-> 
+> main -> Main -> DAO와 VO를 가지고 실질적으로 실행하는 클래스
