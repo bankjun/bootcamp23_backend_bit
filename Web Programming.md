@@ -13,7 +13,7 @@ Markup Language - Markup tag를 사용하는 언어 <> </>
 
 자바에서 만든 웹서버 = WAS -> WAS를 통해서 통신하는 클래스 = servlet/JSP(추상클래스)
 
-
+---------
 # Servlet / JSP
 
 ### 인터넷(네트워크 통신)의 이해
@@ -40,3 +40,20 @@ Web =
 
 정적 VS 동적 비교
 
+-------------
+# MVC
+*책추천: 엔터프라이즈 애플리케이션 아키텍처 패턴 -> 이론서*
+
+*스프링 인 엑션 -> 활용서*
+
+### 3Layer Architecture & MVC Pattern
+
+* 3layer -> presentation / service / DAO(repository)
+  * presentation: 표현계층(controller request(요청제어), View(화면)), 사용자와 맞닿는 부분, 한가지만 부름, Main같은거? 
+  
+  * service: 핵심 비즈니스, 여러 기능을 수행해야 할 때 사용됨, 생략될 수 있음
+  
+  * DAO: Model=Data=BusiniessLogic
+ 
+* MVC -> JSP(View) + Servlet(Controller) = Model 2
+  *  JSP만 사용한거, JSP안에서 View,Controller다 만듦 =  Model 1
