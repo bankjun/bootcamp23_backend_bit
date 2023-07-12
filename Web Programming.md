@@ -14,8 +14,6 @@ Markup Language - Markup tag를 사용하는 언어 <> </>
 자바에서 만든 웹서버 = WAS -> WAS를 통해서 통신하는 클래스 = servlet/JSP(추상클래스)
 
 ---------
-# Servlet / JSP
-
 ### 인터넷(네트워크 통신)의 이해
 인터넷 != WWW(World Wide Web)
 
@@ -39,6 +37,17 @@ Web =
 ### 동적 웹 페이지
 
 정적 VS 동적 비교
+
+------------------
+# JSP / Servlet
+
+### JSP(Java Server Page)
+
+
+### Servlet
+
+* Servlet 클래스의 일반적 구조
+
 
 -------------
 # MVC
