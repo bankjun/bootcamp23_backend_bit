@@ -14,6 +14,7 @@
 Web Programming
 --------
 ### JSP(Java Server page) / servlet
+* [jstl](https://github.com/junodevv/servlet-practices/tree/main/jstlel)
 
 ### MVC(Model View Controller)
 
